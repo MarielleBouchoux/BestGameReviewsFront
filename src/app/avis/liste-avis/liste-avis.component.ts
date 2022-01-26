@@ -5,6 +5,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { Avis } from 'src/app/entity/avis';
 import { Jeux } from 'src/app/entity/jeux';
 import { AvisService } from 'src/app/services/avis.service';
+import { Utilisateur } from 'src/app/entity/utilisateur';
 /**
  * @title Paginator
  */
@@ -22,7 +23,7 @@ export class ListeAvisComponent implements OnInit {
   subscription = new Subscription;
 
   @Input()
-  inputAvis: Avis = new Avis("League of legends", 1,  new Date("2019-05-27"), "C'est un chouette jeu", 10, "John Doe", 1, "https://material.angular.io/assets/img/examples/shiba2.jpg", false, "Trucmuche", 2  );
+  inputAvis: Avis = new Avis(0,"League of legends", 1,  new Date("2019-05-27"), "C'est un chouette jeu", 10, "John Doe", 1, "https://material.angular.io/assets/img/examples/shiba2.jpg", false, "Trucmuche", 2  );
   // jeux: Jeux[] = [{ "Minecraft", "Truc", new Date("2019-05-27"), "C'est un chouette jeu", "FPS", "https://material.angular.io/assets/img/examples/shiba2.jpg","PEGI 16", "PS5", "play to play" }];
   jeux: Jeux[] = [];
   //filtre date envoi
