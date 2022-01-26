@@ -1,3 +1,4 @@
+
 <div class="{{ theme }}">
   <mat-card class="{{ theme }} listAvisCard">
     <h1>Liste des avis</h1>
@@ -25,7 +26,7 @@
       aria-label="ajouter un avis"
       matTooltip="ajouter un avis">
       <a color="primary" class="home-btn-item-a" >Ajouter un avis</a>
-    </button>
+      </button>
       <mat-paginator
         [length]="5"
         [pageSize]="5"
@@ -39,25 +40,25 @@
 
       <div class="avis avis1">
         <div class="nomImg">
-          <div class="line1 gameName"> <strong>Nom du jeu:</strong> {{avis.nom}} </div>
-          <div>
+          <div class="line1 gameName"> <strong>Nom du jeu:</strong> {{inputAvis.nom}} </div>
+          <!-- <div>
             <img
               class="gamePicture"
-                src="{{avis.image}}"
+                src="{{inputAvis.image}}"
                 alt="image jeu 1"
               />
-          </div>
+          </div>-->
         </div>
         <div class="joueurDateDesc">
-          <div class="line1 column2"> <strong>Nom du joueur:</strong> {{avis.auteur}}</div>
-          <div class="line1 column2"><strong>Date:</strong> {{avis.dateEnvoi}}</div>
+          <div class="line1 column2"> <strong>Nom du joueur:</strong> {{inputAvis.auteur}}</div>
+          <div class="line1 column2"><strong>Date:</strong> {{inputAvis.dateEnvoi}}</div>
           <div class="description column2">
-            <strong>Description</strong>{{avis.description}}
+            <strong>Description</strong>{{inputAvis.description}}
           </div>
-          <div class="note"><strong>Note:</strong> {{avis.note}}</div>
+          <div class="note"><strong>Note:</strong> {{inputAvis.note}}</div>
         </div>
         <div class="statutOperation">
-          <div class="content line1 statut"><strong>Statut:</strong> {{avis.statut}}</div>
+          <div class="content line1 statut"><strong>Statut:</strong> {{inputAvis.statut}}</div>
           <!-- TODO: supprimer et valider seulement pour les modérateurs -->
           <div class="operation">
             <strong>Opérations:</strong>
@@ -67,135 +68,6 @@
           </div>
         </div>
       </div>
-
-      <div class="avis avis2">
-        <div class="nomImg">
-          <div class="line1 gameName"> <strong>Nom du jeu:</strong> World of Warcraft </div>
-          <div>
-            <img
-              class="gamePicture"
-                src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-                alt="image jeu 1"
-              />
-          </div>
-        </div>
-        <div class="joueurDateDesc">
-          <div class="line1 column2"> <strong>Nom du joueur:</strong> John Doe</div>
-          <div class="line1 column2"><strong>Date:</strong> 01/01/2021</div>
-          <div class="description column2">
-            <strong>Description</strong> Il était une fois une marchande de foie qui vendait
-              du foie dans la ville de Foie.Je m'appelle Barbie et j'adore mon Ken. Je ne tiens pas debout mais tout le monde me trouve belle. Ah si j'avais sur j'aurai mieux travaillé à l'école
-          </div>
-          <div class="note"><strong>Note:</strong> 20/20 </div>
-        </div>
-        <div class="statutOperation">
-          <div class="content line1 statut"><strong>Statut:</strong> à modérer</div>
-          <!-- TODO: supprimer et valider seulement pour les modérateurs -->
-          <div class="operation">
-            <strong>Opérations:</strong>
-            <a mat-flat-button href="">Supprimer</a>
-            <a mat-flat-button href="">Valider</a>
-            <a mat-flat-button href="">Voir l'avis</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="avis avis3">
-        <div class="nomImg">
-          <div class="line1 gameName"> <strong>Nom du jeu:</strong> World of Warcraft </div>
-          <div>
-            <img
-              class="gamePicture"
-                src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-                alt="image jeu 1"
-              />
-          </div>
-        </div>
-        <div class="joueurDateDesc">
-          <div class="line1 column2"> <strong>Nom du joueur:</strong> John Doe</div>
-          <div class="line1 column2"><strong>Date:</strong> 01/01/2021</div>
-          <div class="description column2">
-            <strong>Description</strong> Il était une fois une marchande de foie qui vendait
-              du foie dans la ville de Foie.Je m'appelle Barbie et j'adore mon Ken. Je ne tiens pas debout mais tout le monde me trouve belle. Ah si j'avais sur j'aurai mieux travaillé à l'école
-          </div>
-          <div class="note"><strong>Note:</strong> 20/20 </div>
-        </div>
-        <div class="statutOperation">
-          <div class="content line1 statut"><strong>Statut:</strong> à modérer</div>
-          <!-- TODO: supprimer et valider seulement pour les modérateurs -->
-          <div class="operation">
-            <strong>Opérations:</strong>
-            <a mat-flat-button href="">Supprimer</a>
-            <a mat-flat-button href="">Valider</a>
-            <a mat-flat-button href="">Voir l'avis</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="avis avis4">
-        <div class="nomImg">
-          <div class="line1 gameName"> <strong>Nom du jeu:</strong> World of Warcraft </div>
-          <div>
-            <img
-              class="gamePicture"
-                src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-                alt="image jeu 1"
-              />
-          </div>
-        </div>
-        <div class="joueurDateDesc">
-          <div class="line1 column2"> <strong>Nom du joueur:</strong> John Doe</div>
-          <div class="line1 column2"><strong>Date:</strong> 01/01/2021</div>
-          <div class="description column2">
-            <strong>Description</strong> Il était une fois une marchande de foie qui vendait
-              du foie dans la ville de Foie.Je m'appelle Barbie et j'adore mon Ken. Je ne tiens pas debout mais tout le monde me trouve belle. Ah si j'avais sur j'aurai mieux travaillé à l'école
-          </div>
-          <div class="note"><strong>Note:</strong> 20/20 </div>
-        </div>
-        <div class="statutOperation">
-          <div class="content line1 statut"><strong>Statut:</strong> à modérer</div>
-          <!-- TODO: supprimer et valider seulement pour les modérateurs -->
-          <div class="operation">
-            <strong>Opérations:</strong>
-            <a mat-flat-button href="">Supprimer</a>
-            <a mat-flat-button href="">Valider</a>
-            <a mat-flat-button href="">Voir l'avis</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="avis avis5">
-        <div class="nomImg">
-          <div class="line1 gameName"> <strong>Nom du jeu:</strong> World of Warcraft </div>
-          <div>
-            <img
-              class="gamePicture"
-                src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-                alt="image jeu 1"
-              />
-          </div>
-        </div>
-        <div class="joueurDateDesc">
-          <div class="line1 column2"> <strong>Nom du joueur:</strong> John Doe</div>
-          <div class="line1 column2"><strong>Date:</strong> 01/01/2021</div>
-          <div class="description column2">
-            <strong>Description</strong> Il était une fois une marchande de foie qui vendait
-              du foie dans la ville de Foie.Je m'appelle Barbie et j'adore mon Ken. Je ne tiens pas debout mais tout le monde me trouve belle. Ah si j'avais sur j'aurai mieux travaillé à l'école
-          </div>
-          <div class="note"><strong>Note:</strong> 20/20 </div>
-        </div>
-        <div class="statutOperation">
-          <div class="content line1 statut"><strong>Statut:</strong> à modérer</div>
-          <!-- TODO: supprimer et valider seulement pour les modérateurs -->
-          <div class="operation">
-            <strong>Opérations:</strong>
-            <a mat-flat-button href="">Supprimer</a>
-            <a mat-flat-button href="">Valider</a>
-            <a mat-flat-button href="">Voir l'avis</a>
-          </div>
-        </div>
-      </div>
-
 
     </div>
   </mat-card>

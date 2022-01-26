@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 import { Subscription } from 'rxjs';
 import { FormControl, Validators } from '@angular/forms';
 import { Avis } from 'src/app/entity/avis';
 import { Jeux } from 'src/app/entity/jeux';
+import { AvisService } from 'src/app/services/avis.service';
 /**
  * @title Paginator
  */
@@ -20,7 +21,8 @@ export class ListeAvisComponent implements OnInit {
   theme: string = "";
   subscription = new Subscription;
 
-  avis: Avis = new Avis("League of legends", new Date("2019-05-27"), "C'est un chouette jeu", "10/20", "John Doe", "https://material.angular.io/assets/img/examples/shiba2.jpg", "A modérer" );
+  @Input()
+  inputAvis: Avis = new Avis("League of legends", new Date("2019-05-27"), "C'est un chouette jeu", "10/20", "John Doe", "https://material.angular.io/assets/img/examples/shiba2.jpg", "A modérer" );
   // jeux: Jeux[] = [{ "Minecraft", "Truc", new Date("2019-05-27"), "C'est un chouette jeu", "FPS", "https://material.angular.io/assets/img/examples/shiba2.jpg","PEGI 16", "PS5", "play to play" }];
   jeux: Jeux[] = [];
   //filtre date envoi
@@ -29,7 +31,9 @@ export class ListeAvisComponent implements OnInit {
   listeJeux = new FormControl('', Validators.required);
   selectFormControl = new FormControl('', Validators.required);
 
-  constructor(private data: DataService) { }
+  constructor(private data: DataService, avisService : AvisService) {
+
+   }
 
   ngOnInit(): void {
     // onInit récupère le currentThème du data service
