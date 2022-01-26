@@ -3,7 +3,7 @@ export class Utilisateur {
   private _id:number= 0
   private _role: string = 'anonymous';
   private _token: string = 'default';
-  constructor(private _pseudo: string, private _email: string, private _dateDeNaissance: Date, private _password: string){}
+  constructor(private _pseudo: string, private _email: string, private _dateDeNaissance: Date, private _password: string, private _numeroDetelephone : string){}
 
   public get pseudo() {
     return this._pseudo;
@@ -39,10 +39,20 @@ export class Utilisateur {
 
   public get token(){
     return this._token;
-  }
+  };
 
   public set token(t : string) {
-    this._role = t;
+    this._token = t;
   };
+
+  public get numeroDetelephone(){
+    return this._numeroDetelephone;
+  };
+
+  public set numeroDetelephone(n : string){
+    this.numeroDetelephone;
+  }
+
+
 
 }
