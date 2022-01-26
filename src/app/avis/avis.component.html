@@ -1,27 +1,34 @@
 
 <div class="{{ theme }}">
   <mat-card class="{{ theme }} AvisCard">
-    <div>
-      <div class="nomImg">
-        <div>
-          <img
-            class="gamePicture"
-              src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-              alt="image jeu 1"
-            />
-        </div>
+    <h1>Liste des avis</h1>
+    <!-- TODO: la page n'est accessible qu'aux personnes connectées -->
+    <div class="enTete">
+      <div class="filtres">
+        <mat-card>
+          <h2>Filtrer par</h2>
+        </mat-card>
       </div>
-      <div> <strong>Nom du jeu:</strong> name1 </div>
-      <div> <strong>Editeur:</strong> editor1</div>
-      <div class="operation">
-        <strong>Opérations:</strong>
-        <a mat-flat-button href="">Voir l'avis</a>
-        <a mat-flat-button href="">Modifier</a>
-        <a mat-flat-button href="">Téléverser l'image</a>
-        <a mat-flat-button href="">Supprimer</a>
-      </div>
+      <button mat-raised-button color="primary" class="home-btn-item" routerLink="/avis/ajouter-avis"
+      aria-label="ajouter un avis"
+      matTooltip="ajouter un avis">
+      <a color="primary" class="home-btn-item-a" >Ajouter un avis</a>
+      </button>
+      <!-- TODO: seul les joueurs peuvent ajouter un avis -->
     </div>
+
+    <app-liste-avis *ngFor="let a of avis" [inputAvis]="a"></app-liste-avis>
+
+      <mat-paginator
+        #paginator
+        [length]="5"
+        [pageSize]="10"
+        [pageSizeOptions]="[5,10,15,20]"
+        aria-label="Select page"
+        showFirstLastButtons
+      >
+      </mat-paginator>
   </mat-card>
 </div>
 
-<app-liste-avis *ngFor="let a of avis" [inputAvis]="a"></app-liste-avis>
+

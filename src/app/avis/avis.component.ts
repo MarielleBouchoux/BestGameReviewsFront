@@ -4,6 +4,7 @@ import { DataService } from '../services/data.service';
 import { Subscription } from 'rxjs';
 import { Avis } from '../entity/avis';
 import { Utilisateur } from '../entity/utilisateur';
+import {MatTableDataSource} from '@angular/material/table';
 
 @Component({
   selector: 'app-avis',
@@ -11,6 +12,9 @@ import { Utilisateur } from '../entity/utilisateur';
   styleUrls: ['./avis.component.scss']
 })
 export class AvisComponent implements OnInit {
+
+
+
 
   // initialise le thème du user
   theme: string = "";
@@ -23,6 +27,8 @@ export class AvisComponent implements OnInit {
 
     this.avis = [];
   }
+
+
 
   ngOnInit(): void {
     // onInit on récupère le currentThème du data service
