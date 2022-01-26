@@ -3,7 +3,8 @@ import { FormControl } from '@angular/forms';
 import { DataService } from './services/data.service';
 import { Subscription } from 'rxjs';
 import { style } from '@angular/animations';
-
+import { Avis } from './entity/avis';
+import { AvisService } from './services/avis.service';
 
 
 @Component({
@@ -19,12 +20,19 @@ export class AppComponent {
   otherTheme: string = "";
   subscription = new Subscription;
 
-  constructor(private data: DataService){};
+  //Avis pour liste avis
+  avis : Avis[];
+
+  constructor(private data: DataService, private avisService:AvisService){
+    this.avis=[];
+
+  };
 
 
   ngOnInit(){
     // onInit récupère le currentThème du data service
     this.subscription = this.data.currentTheme.subscribe(theme => this.otherTheme = theme);
+    this.getAllAvis();
   }
 
   ngOnDestroy(){
@@ -40,6 +48,9 @@ export class AppComponent {
     this.data.changeTheme(this.otherTheme);
   }
 
+  getAllAvis(){
+    this.avisService.getAvis();
+  }
 
 
 }

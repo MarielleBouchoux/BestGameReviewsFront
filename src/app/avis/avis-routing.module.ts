@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AjouterAvisComponent } from './ajouter-avis/ajouter-avis.component';
+import { AvisComponent } from './avis.component';
 import { ListeAvisComponent } from './liste-avis/liste-avis.component';
-import { AvisComponent } from './avis/avis.component';
+
 
 const routes: Routes = [
-  {path:'', redirectTo:'/avis/liste-avis', pathMatch:'full'},
+  {path:'', redirectTo:'/avis', pathMatch:'full'},
+  {path:'avis', component:AvisComponent},
   {path:'liste-avis', component:ListeAvisComponent},
-  {path:'ajouter-avis', component:AjouterAvisComponent},
-  {path:'avis/{avis.id}', component:AvisComponent}
+  {path:'ajouter-avis', component:AjouterAvisComponent}
 ];
 
 
