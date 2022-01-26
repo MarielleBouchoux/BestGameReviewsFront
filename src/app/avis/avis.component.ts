@@ -36,7 +36,16 @@ export class AvisComponent implements OnInit {
   }
 
   getAllAvis(){
-    this.avisService.getAvis().subscribe(data => this.avis = data);
-  }
+    this.avisService.getAvis().subscribe({
+      next:data => {
+        console.log(data);
+        this.avis = data;
+      }
+  });
+
 
 }
+}
+
+
+
