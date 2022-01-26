@@ -14,6 +14,9 @@ import {MatPaginator, MatPaginatorIntl} from '@angular/material/paginator';
 })
 export class AvisComponent implements OnInit ,AfterViewInit  {
 
+
+
+
   // initialise le thème du user
   theme: string = "";
   subscription = new Subscription;
