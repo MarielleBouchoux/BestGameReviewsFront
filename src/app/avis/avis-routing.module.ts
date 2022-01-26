@@ -7,8 +7,8 @@ import { ListeAvisComponent } from './liste-avis/liste-avis.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'/avis', pathMatch:'full'},
-  {path:'avis', component:AvisComponent},
-  {path:'liste-avis', component:ListeAvisComponent},
+  {path:'liste-avis', component:AvisComponent},
+  {path:'/', component:ListeAvisComponent},
   {path:'ajouter-avis', component:AjouterAvisComponent}
 ];
 

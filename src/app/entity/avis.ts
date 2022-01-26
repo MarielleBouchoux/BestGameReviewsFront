@@ -1,3 +1,5 @@
+import { Utilisateur } from "./utilisateur";
+
 export class Avis {
   private _id:number= 0
 
@@ -14,6 +16,16 @@ export class Avis {
     private _moderateur : string,
     private _moderateur_id : number,
     ){}
+
+
+    public get id() : number {
+      return this._id;
+    }
+
+
+    public set id(v : number) {
+      this._id = v;
+    }
 
   public get nom() {
     return this._nom;
@@ -51,25 +63,9 @@ export class Avis {
     return this._note;
   }
 
-  public set note(n : number) {
-    this._note = n;
-  };
-
   public get auteur(){
     return this._auteur;
   }
-
-  public set auteur(n : string) {
-    this._auteur = n;
-  };
-
-  public get auteur_id(){
-    return this._auteur_id;
-  }
-
-  public set auteur_id(n : number) {
-    this._auteur_id = n;
-  };
 
   public get image(){
     return this._image;
@@ -83,19 +79,5 @@ export class Avis {
  public get statut(){
    return this._statut;
  }
-
- public set statut(n : boolean) {
-  this._statut = n;
-};
-
-public get moderateur(){
-  return this._moderateur;
-}
-
-public set moderateur_id(n : number) {
- this._moderateur_id = n;
-};
-
-
 
 }
