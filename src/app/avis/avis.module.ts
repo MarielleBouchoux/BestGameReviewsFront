@@ -10,8 +10,7 @@ import { MaterialModule } from '../material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FrenchPaginator } from '../french-paginator';
 import { MatPaginatorIntl } from '@angular/material/paginator';
-import { ReactiveFormsModule } from '@angular/forms';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule  } from '@angular/forms';
 
 
 //example of eager loading

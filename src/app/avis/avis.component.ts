@@ -48,19 +48,31 @@ export class AvisComponent implements OnInit {
   }
 
   getAllAvis(){
-  return this.avisService.getAvis().subscribe({
+    this.avisService.getAvis().subscribe({
       next: data => {
-        console.log(data);
-        data.forEach(element => {
-          let art: Avis = new Avis(element.nom, element.dateEnvoi, element.description,element.note,new Utilisateur(element.joueur.pseudo,element.joueur.email,element.joueur.dateDeNaissance,""),element.image,element.statut,new Utilisateur(element.moderateur.pseudo,element.moderateur.email,element.moderateur.dateDeNaissance,""));
-          art.id = element.id;
-          this.avis.push(art);
+        data.forEach( element => {
+          this.avis.push(new Avis(
+            element.id,
+            element.nom,
+            element.jeu_id,
+            element.dateEnvoi,
+            element.description,
+            element.note,
+            element.auteur,
+            element.auteur_id,
+            element.image,
+            element.statut,
+            element.moderateur,
+            element.moderateur_id))
         })
       },
       error: error => {
         alert(`Une erreur c'est produite${error}`)
       }
     });
+
+    console.log(this.avis);
+  return this.avis;
   }
 
 }
