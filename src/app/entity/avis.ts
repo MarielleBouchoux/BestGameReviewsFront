@@ -1,9 +1,10 @@
 import { Utilisateur } from "./utilisateur";
 
 export class Avis {
-  private _id:number= 0
+
 
   constructor(
+    private _id:number,
     private _nom: string,
     private _jeu_id: number,
     private _dateEnvoi : Date,
@@ -14,7 +15,7 @@ export class Avis {
     private _image: string,
     private _statut: boolean,
     private _moderateur : string,
-    private _moderateur_id : number,
+    private _moderateur_id : number
     ){}
 
 
@@ -62,6 +63,12 @@ export class Avis {
   public get note(){
     return this._note;
   }
+  public get auteur_id(){
+    return this._auteur_id;
+  }
+  public set auteur_id(n : number) {
+    this._auteur_id = n;
+  };
 
   public get auteur(){
     return this._auteur;
@@ -75,6 +82,19 @@ export class Avis {
     this._image = n;
   };
 
+  public get moderateur(){
+    return this._moderateur;
+  }
+
+  public set moderateur(n : string) {
+    this._moderateur = n;
+  };
+  public get moderateur_id(){
+    return this._moderateur_id;
+  }
+  public set moderateur_id(n : number) {
+    this._moderateur_id = n;
+  };
 
  public get statut(){
    return this._statut;

@@ -21,22 +21,9 @@ export class ListeAvisComponent implements OnInit {
   // initialise le thème du user
   theme: string = "";
   subscription = new Subscription;
-  //private _pseudo: string, private _email: string, private _dateDeNaissance: Date, private _password: string
-  user : Utilisateur = new Utilisateur("paul","paul@gmail.com",new Date("1985-10-06"),"")
 
-  /**
-   * param
-   * private _nom: string,
-    private _dateEnvoi : Date ,
-    private _description: string,
-    private _note: number,
-    private _auteur: string => private _pseudo: string, private _email: string, private _dateDeNaissance: Date, private _password: string
-    private _image: string,
-    private _statut: string,
-
-   */
   @Input()
-  inputAvis: Avis = new Avis("League of legends", 1,  new Date("2019-05-27"), "C'est un chouette jeu", 10, "John Doe", 1, "https://material.angular.io/assets/img/examples/shiba2.jpg", false, "Trucmuche", 2  );
+  inputAvis: Avis = new Avis(0,"League of legends", 1,  new Date("2019-05-27"), "C'est un chouette jeu", 10, "John Doe", 1, "https://material.angular.io/assets/img/examples/shiba2.jpg", false, "Trucmuche", 2  );
   // jeux: Jeux[] = [{ "Minecraft", "Truc", new Date("2019-05-27"), "C'est un chouette jeu", "FPS", "https://material.angular.io/assets/img/examples/shiba2.jpg","PEGI 16", "PS5", "play to play" }];
   jeux: Jeux[] = [];
   //filtre date envoi
