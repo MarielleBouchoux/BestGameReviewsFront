@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 import { Subscription } from 'rxjs';
+import { Jeux } from 'src/app/entity/jeux';
 
 @Component({
   selector: 'app-jeux',
@@ -9,6 +10,7 @@ import { Subscription } from 'rxjs';
 })
 export class JeuxComponent implements OnInit {
 
+  // jeux : Jeux[];
    // initialise le thème du user
    theme: string = "";
    subscription = new Subscription;
