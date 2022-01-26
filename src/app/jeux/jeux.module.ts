@@ -7,7 +7,7 @@ import { AjouterJeuxComponent } from './ajouter-jeux/ajouter-jeux.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
-import { JeuxComponent } from './jeux/jeux.component';
+import { JeuxComponent } from './jeux.component';
 
 @NgModule({
   declarations: [

@@ -17,7 +17,7 @@ export class AvisService {
   constructor(private client:HttpClient) {}
 
   getAvis():Observable<Avis[]>{
-    return this.client.get<Avis[]>(AUTH_API + 'liste-avis');
+    return this.client.get<Avis[]>(AUTH_API + 'liste-avis-dto');
   }
 
   addAvis(

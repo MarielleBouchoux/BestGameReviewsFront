@@ -1,32 +1,31 @@
 import { Component, OnInit } from '@angular/core';
-import { AvisService } from '../services/avis.service';
+import { JeuxService } from '../services/jeux.service';
 import { DataService } from '../services/data.service';
 import { Subscription } from 'rxjs';
-import { Avis } from '../entity/avis';
+import { Jeux } from '../entity/jeux';
 
 @Component({
-  selector: 'app-avis',
-  templateUrl: './avis.component.html',
-  styleUrls: ['./avis.component.scss']
+  selector: 'app-jeux',
+  templateUrl: './jeux.component.html',
+  styleUrls: ['./jeux.component.scss']
 })
-export class AvisComponent implements OnInit {
+export class JeuxComponent implements OnInit {
 
   // initialise le thème du user
   theme: string = "";
   subscription = new Subscription;
 
-  //Avis pour liste avis
-  avis : Avis[];
+  //Avis pour liste jeux
+  jeux : Jeux[];
 
-  constructor(private data: DataService, private avisService: AvisService) {
-
-    this.avis = [];
-  }
-
-  ngOnInit(): void {
+  constructor( private data: DataService,private jeuxService: JeuxService) {
     // onInit on récupère le currentThème du data service
     this.subscription = this.data.currentTheme.subscribe(theme => this.theme = theme);
-    this.getAllAvis();
+    this.jeux = []
+   }
+
+  ngOnInit(): void {
+    this.getAllJeux();
   }
 
   ngOnDestroy(){
@@ -35,8 +34,8 @@ export class AvisComponent implements OnInit {
     }
   }
 
-  getAllAvis(){
-    this.avisService.getAvis().subscribe(data => this.avis = data);
+  getAllJeux(){
+    this.jeuxService.getJeux().subscribe(data => this.jeux = data);
   }
 
 }
