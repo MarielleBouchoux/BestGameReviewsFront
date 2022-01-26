@@ -1,28 +1,36 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { AvisService } from '../services/avis.service';
 import { DataService } from '../services/data.service';
 import { Subscription } from 'rxjs';
 import { Avis } from '../entity/avis';
-import { Utilisateur } from '../entity/utilisateur';
+import { MatTableDataSource } from '@angular/material/table';
+import {MatPaginator, MatPaginatorIntl} from '@angular/material/paginator';
+
 
 @Component({
   selector: 'app-avis',
   templateUrl: './avis.component.html',
   styleUrls: ['./avis.component.scss']
 })
-export class AvisComponent implements OnInit {
+export class AvisComponent implements OnInit ,AfterViewInit  {
 
   // initialise le thème du user
   theme: string = "";
   subscription = new Subscription;
 
   //Avis pour liste avis
-  avis : Avis[];
+  avis : Avis[]= [];
+  ELEMENT_DATA: Avis[] = this.avis;
+  dataSource = new MatTableDataSource<Avis>(this.avis);
+  constructor(private data: DataService, private avisService: AvisService,private cdr: ChangeDetectorRef) {
 
-  constructor(private data: DataService, private avisService: AvisService) {
-
-    this.avis = [];
   }
+  @ViewChild(MatPaginator) paginator: MatPaginator = new MatPaginator(new MatPaginatorIntl,this.cdr);
+
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+  }
+
 
   ngOnInit(): void {
     // onInit on récupère le currentThème du data service
