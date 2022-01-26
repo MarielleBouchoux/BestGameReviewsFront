@@ -1,0 +1,28 @@
+.inscriptionCard {
+  min-height: 85vh;
+}
+
+.mat-form-field {
+    text-align: left;
+    width: 20em;
+}
+
+.formField {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30em;
+
+}
+
+.myForm {
+  display: flex;
+  justify-content: center;
+}
+
+.submitButton {
+  border-radius: 50px;
+  padding: 1em;
+  height: 60px;
+  width: 150px;
+}

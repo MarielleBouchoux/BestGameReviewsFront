@@ -1,0 +1,91 @@
+.listAvisCard {
+  min-height: 100vh;
+}
+
+.mat-paginator {
+  margin-right: 10em;
+}
+
+.avisContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.avis {
+  border: 2px solid black;
+  padding: 0.5em;
+  margin: 0.5em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 55em;
+}
+
+strong {
+  color:#80cbc4;
+}
+
+
+.nomImg {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 0.5em;
+}
+
+
+.line1 {
+  width: fit-content;
+}
+
+
+.joueurDateDesc {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5em;
+  width: 25rem;
+}
+.column2 {
+  margin-bottom: 0.7em;
+}
+
+.statutOperation {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5em;
+}
+.statut {
+  margin-bottom: 1em;
+}
+.operation {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.description {
+  text-overflow: ellipsis;
+  width: 25rem;
+  overflow: hidden;
+  text-align: left;
+  max-height: 4rem;
+  overflow-wrap: break-word;
+  white-space: nowrap
+}
+.gameName {
+  width: 15rem;
+  overflow-wrap: break-word;
+  max-height: 2rem;
+  text-overflow: ellipsis
+}
+
+.gamePicture {
+  width: 10rem;
+
+}
+
+.mat-flat-button {
+  color: blue;
+}
+

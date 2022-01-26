@@ -1,0 +1,64 @@
+  <div class={{otherTheme}}>
+  <mat-toolbar color="primary" class="toolbar" >
+    <mat-toolbar-row>
+      <button mat-button disabled matTooltip="Acceuil" aria-label="Lien vers l'acceuil">
+        <a routerLink="/home">
+        <img
+          class="logoImg"
+          src="../assets/img/logo/TestLogoFinal.jpg"
+          alt="logo BestGameReviews"
+        />
+        </a>
+      </button>
+      <span class="menu-spacer"></span>
+      <button mat-button (click)="changeTheme()" matTooltip="Thème visuel" aria-label="Changement de thème visuel">
+        <span class="iconify" data-icon="mdi:theme-light-dark"></span>
+      </button>
+      <button mat-icon-button  routerLink="/home" matTooltip="Acceuil" aria-label="Lien vers l'acceuil">
+        <a routerLink="/home"></a>
+        <mat-icon>home</mat-icon>
+      </button>
+      <!-- TODO Ne faire apparaître le sous menu que si le user est connecté -->
+      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="menu" matTooltip="Menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-button class="mat-menu-item">
+          <a class="mat-menu-item-a" routerLink="avis/liste-avis"> Liste des avis </a>
+        </button>
+        <button mat-button class="mat-menu-item">
+          <a class="mat-menu-item-a" routerLink="jeux/liste-jeux"> Liste des jeux </a>
+        </button>
+        <button mat-button class="mat-menu-item">
+          <a class="mat-menu-item-a" routerLink="avis/ajouter-avis"> Ajouter un avis </a>
+        </button>
+      </mat-menu>
+      <!-- TODO: Bonus accéder à la page du user et pouvoir apporter des modifications -->
+      <button mat-icon-button ici matTooltip="Profile" aria-label="User profile">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+      <!-- TODO: mettre le signin quand  le user n'est pas connecté, mettre le logout quand le user est connecté -->
+      <button
+        mat-button
+        aria-label="login button"
+        routerLink="/user/connexion"
+        matTooltip="Se connecter"
+      >
+        <a routerLink="/user/connexion"></a>
+        <mat-icon>login</mat-icon>
+      </button>
+      <button
+        mat-button
+        aria-label="logout button"
+        matTooltip="Se déconnecter"
+        routerLink=""
+      >
+        <a routerLink=""></a>
+        <mat-icon>logout</mat-icon>
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>
+<div id="content">
+  <router-outlet></router-outlet>
+</div>

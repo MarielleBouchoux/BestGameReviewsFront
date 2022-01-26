@@ -1,0 +1,42 @@
+<div class="div-notFound {{ theme }}">
+  <mat-card class="{{ theme }} notFoundCard">
+    <div class="content">
+      <p class="notFound quatre">404</p>
+      <p class="notFound">GAME OVER</p>
+      <div class="notFound-img">
+        <div class="notFound-img-item">
+          <img
+            class="monkeys"
+            src="/assets/img/icones/kisspng-space-invaders2.png"
+            alt="Image d'un singe les mains sur les oreilles"
+          />
+        </div>
+        <div class="notFound-img-item">
+          <img
+            class="monkeys"
+            src="/assets/img/icones/kisspng-space-invaders1.png"
+            alt="Image d'un singe les mains sur les yeux"
+          />
+        </div>
+        <div class="notFound-img-item">
+          <img
+            class="monkeys"
+            src="/assets/img/icones/kisspng-space-invaders3.png"
+            alt="Image d'un singe les mains sur la bouche"
+          />
+        </div>
+      </div>
+      <p class="notFound">TRY AGAIN</p>
+      <p class="notFoundExplain">
+        * Oups la page que vous recherchez n'existe pas...
+      </p>
+      <div class="notFound-btn">
+        <button mat-raised-button color="primary" class="notFound-btn-item">
+          <a class="notFound-btn-item-a" [routerLink]="'/home'"
+            >Retour à la page d'accueil</a
+          >
+        </button>
+      </div>
+    </div>
+  </mat-card>
+</div>
