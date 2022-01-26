@@ -16,8 +16,8 @@ export class JeuxService {
 
   constructor(private client:HttpClient) {}
 
-  getJeux():Observable<Jeux[]>{
-    return this.client.get<Jeux[]>(AUTH_API + 'liste-jeux');
+  getJeux():Observable<Array<Jeux>>{
+    return this.client.get<Array<Jeux>>(AUTH_API + 'liste-jeux');
   };
 
 
