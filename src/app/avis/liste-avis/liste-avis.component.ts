@@ -6,6 +6,7 @@ import { Avis } from 'src/app/entity/avis';
 import { Jeux } from 'src/app/entity/jeux';
 import { AvisService } from 'src/app/services/avis.service';
 import { Utilisateur } from 'src/app/entity/utilisateur';
+import { AuthService } from 'src/app/services/auth.service.service';
 /**
  * @title Paginator
  */
@@ -22,6 +23,9 @@ export class ListeAvisComponent implements OnInit {
   theme: string = "";
   subscription = new Subscription;
 
+  // on initialise l'état de connexion du user
+  isLoggedIn = false;
+
   @Input()
   inputAvis: Avis = new Avis(0,"League of legends", 1,  new Date("2019-05-27"), "C'est un chouette jeu", 10, "John Doe", 1, "https://material.angular.io/assets/img/examples/shiba2.jpg", false, "Trucmuche", 2  );
   // jeux: Jeux[] = [{ "Minecraft", "Truc", new Date("2019-05-27"), "C'est un chouette jeu", "FPS", "https://material.angular.io/assets/img/examples/shiba2.jpg","PEGI 16", "PS5", "play to play" }];
@@ -32,13 +36,15 @@ export class ListeAvisComponent implements OnInit {
   listeJeux = new FormControl('', Validators.required);
   selectFormControl = new FormControl('', Validators.required);
 
-  constructor(private data: DataService, avisService : AvisService) {
+  constructor(private data: DataService, avisService : AvisService, private authService: AuthService) {
 
    }
 
   ngOnInit(): void {
     // onInit récupère le currentThème du data service
     this.subscription = this.data.currentTheme.subscribe(theme => this.theme = theme);
+    // onInit on récupère l'état de connexion du user
+    this.subscription = this.authService.connexionState.subscribe(connexionState => this.isLoggedIn = connexionState);
   }
 
   ngOnDestroy(){
