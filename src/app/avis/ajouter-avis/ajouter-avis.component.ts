@@ -3,6 +3,7 @@ import { DataService } from 'src/app/services/data.service';
 import { Subscription } from 'rxjs';
 import { Jeux } from 'src/app/entity/jeux';
 import { FormControl, Validators } from '@angular/forms';
+import { JeuxService } from 'src/app/services/jeux.service';
 
 @Component({
   selector: 'app-ajouter-avis',
@@ -21,12 +22,13 @@ export class AjouterAvisComponent implements OnInit {
   theme: string = "";
   subscription = new Subscription;
 
-  constructor( private data: DataService) { }
+  constructor( private data: DataService,private serviceJeu : JeuxService) { }
   //constructor(){};
 
   ngOnInit(): void {
     // onInit on récupère le currentThème du data service
     this.subscription = this.data.currentTheme.subscribe(theme => this.theme = theme);
+    this.getAllJeux();
   }
 
   ngOnDestroy(){
@@ -37,6 +39,30 @@ export class AjouterAvisComponent implements OnInit {
 
   enregistrerAvis(){
     // faire la fonction pour enregistrer l'avis
+  }
+  getAllJeux(){
+    this.serviceJeu.getJeux().subscribe({
+      next: data => {
+        data.forEach( element => {
+          this.jeu = new Jeux(
+            element.id,
+            element.nom,
+            element.editeur,
+            element.dateDeSortie,
+            element.description,
+            element.genre,
+            element.image,
+            element.classification,
+            element.plateforme,
+            element.modeleEconomique
+          ),
+          this.jeux.push(this.jeu)
+        })
+      },
+      error: error => {
+        alert(`Une erreur s'est produite ${error}`)
+      }
+  });
   }
 
 }

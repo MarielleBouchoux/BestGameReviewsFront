@@ -101,4 +101,18 @@ export class JeuxComponent implements OnInit  ,AfterViewInit  {
 
 }
 
+/**
+ * supprime la donné dans le tableau de juex
+ */
+removeJeu(id:number){
+  this.jeux.splice(this.jeux.findIndex(jeu => jeu.id == id),1);
+  this.jeuxService.deleteJeu(id).subscribe();
+  this.pageSize = 5;
+  this.highValue = 5;
+  this.lowValue = 0;
+  this.pageEvent.pageSize = this.pageSize;
+  this.pageEvent.pageIndex = this.lowValue;
+  this.pageEvent.length = this.jeux.length;
+}
+
 }
