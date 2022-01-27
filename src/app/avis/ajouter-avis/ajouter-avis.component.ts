@@ -12,7 +12,7 @@ import { FormControl, Validators } from '@angular/forms';
 export class AjouterAvisComponent implements OnInit {
 
   //Importe l'objet Jeux pour le 1er filtre obligatoire
-  jeu: Jeux = new Jeux("World of Warcraft", "un éditeur", new Date("2019-05-21"), "ceci est un jeu", "FPS", "https://material.angular.io/assets/img/examples/shiba2.jpg", "PEGI 12", "PS5", "Free2Play" );
+  jeu: Jeux = new Jeux(0,"World of Warcraft", "un éditeur", new Date("2019-05-21"), "ceci est un jeu", "FPS", "https://material.angular.io/assets/img/examples/shiba2.jpg", "PEGI 12", "PS5", "Free2Play" );
 
   jeuxControl = new FormControl('', Validators.required);
   selectFormControl = new FormControl('', Validators.required);
