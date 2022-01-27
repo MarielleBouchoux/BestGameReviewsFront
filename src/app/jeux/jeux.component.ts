@@ -90,10 +90,12 @@ export class JeuxComponent implements OnInit  ,AfterViewInit  {
         alert(`Une erreur s'est produite ${error}`)
       }
   });
-  this.pageSize = this.jeux.length;
-    this.pageIndex = 0;
+  this.pageSize = 5;
     this.highValue = 5;
     this.lowValue = 0;
+    this.pageEvent.pageSize = this.pageSize;
+    this.pageEvent.pageIndex = this.lowValue;
+    this.pageEvent.length = this.jeux.length;
   console.log(this.jeux);
   return this.jeux;
 

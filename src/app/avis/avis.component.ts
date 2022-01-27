@@ -104,10 +104,13 @@ this.pageEvent.length = 0
       }
     });
 
-    this.pageSize = this.avis.length;
+    this.pageSize = 5;
     this.pageIndex = 0;
     this.highValue = 5;
     this.lowValue = 0;
+    this.pageEvent.pageSize = this.pageSize;
+    this.pageEvent.pageIndex = this.lowValue;
+    this.pageEvent.length = this.avis.length;
     console.log(this.avis);
   return this.avis;
   }
