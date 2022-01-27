@@ -5,7 +5,7 @@ import { Subscription } from 'rxjs';
 import { Avis } from '../entity/avis';
 import { MatTableDataSource } from '@angular/material/table';
 import {MatPaginator, MatPaginatorIntl, PageEvent} from '@angular/material/paginator';
-
+import { AuthService } from '../services/auth.service.service';
 
 @Component({
   selector: 'app-avis',
@@ -24,12 +24,14 @@ export class AvisComponent implements OnInit ,AfterViewInit  {
   // initialise le thème du user
   theme: string = "";
   subscription = new Subscription;
-
+   // on initialise l'état de connexion du user
+   isLoggedIn = false;
   //Avis pour liste avis
   avis : Avis[]= [];
   ELEMENT_DATA: Avis[] = this.avis;
   dataSource = new MatTableDataSource<Avis>(this.avis);
-  constructor(private data: DataService, private avisService: AvisService,private cdr: ChangeDetectorRef) {
+
+  constructor(private data: DataService, private avisService: AvisService,private cdr: ChangeDetectorRef, private authService : AuthService) {
 this.pageEvent.pageIndex = 0;
 this.pageEvent.pageSize = 5;
 this.pageEvent.length = 0
@@ -60,6 +62,8 @@ this.pageEvent.length = 0
   ngOnInit(): void {
     // onInit on récupère le currentThème du data service
     this.subscription = this.data.currentTheme.subscribe(theme => this.theme = theme);
+    // onInit on récupère l'état de connexion du user
+    this.subscription = this.authService.connexionState.subscribe(connexionState => this.isLoggedIn = connexionState);
     this.getAllAvis();
   }
   /**

@@ -3,6 +3,8 @@ import { DataService } from '../../services/data.service';
 import { Subscription } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service.service';
 import { TokenStorage } from 'src/app/services/token-storage.service.service';
+import { Router} from '@angular/router';
+
 
 
 @Component({
@@ -22,6 +24,7 @@ export class ConnexionComponent implements OnInit {
     email: null,
     password: null
   };
+  // on initialise l'état de connexion du user
   isLoggedIn = false;
   isLoginFailed = false;
   errorMessage = '';
@@ -31,7 +34,7 @@ export class ConnexionComponent implements OnInit {
   // pour la possibilité de voir le mot de passe que l'utilisateur saisie
   hide = true;
 
-  constructor(private data: DataService, private authService: AuthService, private tokenStorage: TokenStorage ) {};
+  constructor(private data: DataService, private authService: AuthService, private tokenStorage: TokenStorage, private router: Router ) {};
 
 
   ngOnInit(): void {
@@ -42,6 +45,8 @@ export class ConnexionComponent implements OnInit {
       this.isLoggedIn = true;
       this.roles = this.tokenStorage.getUser().roles;
     }
+    // onInit on récupère l'état de connexion du user
+    this.subscription = this.authService.connexionState.subscribe(connexionState => this.isLoggedIn = connexionState);
   }
 
   ngOnDestroy(){
@@ -53,22 +58,27 @@ export class ConnexionComponent implements OnInit {
   // pour la validation du formulaire de connexion
   onSubmit(): void {
     const { email, password } = this.form;
+    this.authService.login(true);
+    this.router.navigate(['/avis/liste-avis']);
 
-    this.authService.login(email, password).subscribe(
-      data => {
-        this.tokenStorage.saveToken(data.token);
-        this.tokenStorage.saveUser(data);
 
-        this.isLoginFailed = false;
-        this.isLoggedIn = true;
-        this.roles = this.tokenStorage.getUser().roles;
-        this.reloadPage();
-      },
-      err => {
-        this.errorMessage = err.error.message;
-        this.isLoginFailed = true;
-      }
-    );
+
+    // Nous utiliserons cette fonction lorsque nous enverrons le login à l'API
+    // this.authService.login(email, password).subscribe(
+    //   data => {
+    //     this.tokenStorage.saveToken(data.token);
+    //     this.tokenStorage.saveUser(data);
+
+    //     this.isLoginFailed = false;
+    //     this.isLoggedIn = true;
+    //     this.roles = this.tokenStorage.getUser().roles;
+    //     this.reloadPage();
+    //   },
+    //   err => {
+    //     this.errorMessage = err.error.message;
+    //     this.isLoginFailed = true;
+    //   }
+    // );
   }
 
   reloadPage(): void {

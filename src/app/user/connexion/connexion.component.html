@@ -1,10 +1,12 @@
 <div class="{{theme}} connexionDiv">
   <mat-card class="{{theme}} connexionCard">
+    <div *ngIf="!isLoggedIn">
     <form
       class="myForm"
       name="form"
       (ngSubmit)="f.form.valid && onSubmit()"
       #f="ngForm"
+      action="/avis/liste-avis"
       novalidate>
       <fieldset class="formField">
       <legend>Connexion</legend>
@@ -67,8 +69,9 @@
     </div>
     </fieldset>
       </form>
+  </div>
       <div class="alert alert-success" *ngIf="isLoggedIn">
-        Connecté comme {{ roles }}.
+        Vous êtes bien connecté !
       </div>
 </mat-card>
 </div>

@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { style } from '@angular/animations';
 import { Avis } from './entity/avis';
 import { AvisService } from './services/avis.service';
+import { AuthService } from './services/auth.service.service';
 
 
 @Component({
@@ -20,10 +21,13 @@ export class AppComponent {
   otherTheme: string = "";
   subscription = new Subscription;
 
+  // on initialise l'état de connexion du user
+  isLoggedIn = false;
+
   //Avis pour liste avis
   avis : Avis[];
 
-  constructor(private data: DataService, private avisService:AvisService){
+  constructor(private data: DataService, private avisService:AvisService, private authService : AuthService){
     this.avis=[];
 
   };
@@ -33,6 +37,9 @@ export class AppComponent {
     // onInit récupère le currentThème du data service
     this.subscription = this.data.currentTheme.subscribe(theme => this.otherTheme = theme);
     this.getAllAvis();
+    // onInit on récupère l'état de connexion du user
+    this.subscription = this.authService.connexionState.subscribe(connexionState => this.isLoggedIn = connexionState);
+
   }
 
   ngOnDestroy(){
@@ -52,5 +59,11 @@ export class AppComponent {
     this.avisService.getAvis();
   }
 
+  /*
+  *Pour que le user soit déconnecté
+  */
+  logout(){
+    this.authService.login(false);
+  }
 
 }
