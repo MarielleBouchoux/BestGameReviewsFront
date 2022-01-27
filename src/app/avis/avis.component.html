@@ -17,17 +17,11 @@
       <!-- TODO: seul les joueurs peuvent ajouter un avis -->
     </div>
 
-    <app-liste-avis *ngFor="let a of avis" [inputAvis]="a"></app-liste-avis>
+    <app-liste-avis *ngFor="let a of avis |  slice: lowValue : highValue" [inputAvis]="a"></app-liste-avis>
 
-      <mat-paginator
-        #paginator
-        [length]="5"
-        [pageSize]="10"
-        [pageSizeOptions]="[5,10,15,20]"
-        aria-label="Select page"
-        showFirstLastButtons
-      >
-      </mat-paginator>
+    <mat-paginator [length]="avis.length" [pageSize]="pageSize"
+    (page)="pageEvent = getPaginatorData($event)">
+ </mat-paginator>
   </mat-card>
 </div>
 
