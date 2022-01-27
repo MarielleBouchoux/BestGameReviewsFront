@@ -16,7 +16,9 @@ export class ConnexionComponent implements OnInit {
   theme: string = "";
   subscription = new Subscription;
 
-  password = "";
+  username = "Rudolph";
+  password = "admi123";
+  isAuth:boolean =false;
   email = "";
   form: any = {
     email: null,
