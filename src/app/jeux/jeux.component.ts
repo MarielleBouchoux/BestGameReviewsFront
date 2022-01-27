@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { Jeux } from '../entity/jeux';
 import {MatPaginator, MatPaginatorIntl, PageEvent} from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { AuthService } from '../services/auth.service.service';
 
 @Component({
   selector: 'app-jeux',
@@ -22,6 +23,9 @@ export class JeuxComponent implements OnInit  ,AfterViewInit  {
   theme: string = "";
   subscription = new Subscription;
 
+  // on initialise l'état de connexion du user
+  isLoggedIn = false;
+
   //Avis pour liste jeux
   private jeu : Jeux= new Jeux(0,"Minecraft", "Truc", new Date("2019-05-27"), "C'est un chouette jeu", "FPS", "https://material.angular.io/assets/img/examples/shiba2.jpg","PEGI 16", "PS5", "play to play");
   jeux : Jeux[] = [];
@@ -30,7 +34,7 @@ export class JeuxComponent implements OnInit  ,AfterViewInit  {
 
 
 
-  constructor( private data: DataService,private jeuxService: JeuxService,private cdr: ChangeDetectorRef) {
+  constructor( private data: DataService,private jeuxService: JeuxService,private cdr: ChangeDetectorRef, private authService: AuthService) {
     // onInit on récupère le currentThème du data service
     this.subscription = this.data.currentTheme.subscribe(theme => this.theme = theme);
     this.jeux = []
@@ -58,6 +62,8 @@ export class JeuxComponent implements OnInit  ,AfterViewInit  {
  }
 
   ngOnInit(): void {
+    // onInit on récupère l'état de connexion du user
+    this.subscription = this.authService.connexionState.subscribe(connexionState => this.isLoggedIn = connexionState);
     this.getAllJeux();
   }
 

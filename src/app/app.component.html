@@ -34,10 +34,11 @@
         </button>
       </mat-menu>
       <!-- TODO: Bonus accéder à la page du user et pouvoir apporter des modifications -->
-      <button mat-icon-button ici matTooltip="Profile" aria-label="User profile">
+      <!-- <button mat-icon-button ici matTooltip="Profile" aria-label="User profile">
         <mat-icon>account_circle</mat-icon>
-      </button>
+      </button> -->
       <!-- TODO: mettre le signin quand  le user n'est pas connecté, mettre le logout quand le user est connecté -->
+      <div *ngIf="!isLoggedIn">
       <button
         mat-button
         aria-label="login button"
@@ -47,15 +48,18 @@
         <a routerLink="/user/connexion"></a>
         <mat-icon>login</mat-icon>
       </button>
+      </div>
+      <div *ngIf="isLoggedIn">
       <button
         mat-button
         aria-label="logout button"
         matTooltip="Se déconnecter"
-        routerLink=""
+        (click)="logout()"
       >
         <a routerLink=""></a>
         <mat-icon>logout</mat-icon>
       </button>
+    </div>
     </mat-toolbar-row>
   </mat-toolbar>
 </div>

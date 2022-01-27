@@ -1,6 +1,12 @@
 <div class="{{theme}}">
   <mat-card class="{{theme}} listJeuxCard">
     <h1>Liste des jeux</h1>
+    <div *ngIf="!isLoggedIn">
+      Vous n'êtes pas connecté. Rendez-vous sur la page de connection ou d'inscription
+           <div> <a mat-flat-button class="notConnected" href="/user/connexion">Connexion</a> <a mat-flat-button class="notConnected" href="/user/inscription">Inscription</a></div>
+
+    </div>
+    <div *ngIf="isLoggedIn">
     <div class="enTete">
       <div class="filtres">
         <mat-card>
@@ -15,8 +21,8 @@
       <!-- TODO: seulement pour les modérateurs -->
     </div>
 
-    <app-liste-jeux *ngFor="let j of jeux  |  slice: lowValue : highValue" [inputJeux]="j" (removeEvent)="removeJeu($event)"></app-liste-jeux>
-
+    <app-liste-jeux *ngFor="let j of jeux  |  slice: lowValue : highValue" [inputJeux]="j"></app-liste-jeux>
+    </div>
     <mat-paginator [length]="jeux.length" [pageSize]="pageSize"
     (page)="pageEvent = getPaginatorData($event)">
  </mat-paginator>
