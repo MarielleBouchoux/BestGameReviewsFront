@@ -15,7 +15,7 @@
       <!-- TODO: seulement pour les modérateurs -->
     </div>
 
-    <app-liste-jeux *ngFor="let j of jeux  |  slice: lowValue : highValue" [inputJeux]="j"></app-liste-jeux>
+    <app-liste-jeux *ngFor="let j of jeux  |  slice: lowValue : highValue" [inputJeux]="j" (removeEvent)="removeJeu($event)"></app-liste-jeux>
 
     <mat-paginator [length]="jeux.length" [pageSize]="pageSize"
     (page)="pageEvent = getPaginatorData($event)">

@@ -1,10 +1,10 @@
 
-  <div class="jeuxContainer">
+  <div class="jeuxContainer" #divJeu>
     <div class="jeux jeux{{inputJeux.id}}">
       <div class="nomImg">
         <img
           class="gamePicture"
-            src="{{inputJeux.image}}"
+            src="../assets/img/jeuxvideos/{{inputJeux.image}}"
             alt="image jeu{{inputJeux.id}}"
         />
       </div>
@@ -17,10 +17,10 @@
         <strong>Opérations:</strong>
         </div>
         <div class="operationLink">
-        <a mat-flat-button href="">Voir l'avis</a>
-        <a mat-flat-button href="">Modifier</a>
-        <a mat-flat-button href="">Téléverser l'image</a>
-        <a mat-flat-button href="">Supprimer</a>
+        <a mat-flat-button disabled="true">Voir</a>
+        <a mat-flat-button disabled="true">Modifier</a>
+        <a mat-flat-button  disabled="true">Téléverser l'image</a>
+        <a mat-flat-button (click)="removeGame(divJeu,inputJeux.id)">Supprimer</a>
       </div>
       </div>
       </div>

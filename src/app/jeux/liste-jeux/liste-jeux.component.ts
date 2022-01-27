@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 import { Subscription } from 'rxjs';
 import { Jeux } from 'src/app/entity/jeux';
@@ -10,7 +10,11 @@ import { JeuxService } from 'src/app/services/jeux.service';
   styleUrls: ['./liste-jeux.component.scss']
 })
 export class ListeJeuxComponent implements OnInit {
-
+  /**
+   * pour transmette le remove
+   */
+  @Output()
+  removeEvent = new EventEmitter();
   // initialise le thème du user
   theme: string = "";
   subscription = new Subscription;
@@ -18,7 +22,7 @@ export class ListeJeuxComponent implements OnInit {
   @Input()
   inputJeux: Jeux = new Jeux(0,"Minecraft", "Truc", new Date("2019-05-27"), "C'est un chouette jeu", "FPS", "https://material.angular.io/assets/img/examples/shiba2.jpg","PEGI 16", "PS5", "play to play");
 
-  constructor(private data: DataService, jeuxService : JeuxService) { }
+  constructor(private data: DataService, private jeuxService : JeuxService) { }
   //constructor(){};
 
   ngOnInit(): void {
@@ -31,5 +35,14 @@ export class ListeJeuxComponent implements OnInit {
       this.subscription.unsubscribe();
     }
   }
+
+  /**
+   * Remove this Jeu
+  */
+ removeGame(div:HTMLDivElement, id:number){
+   div.remove;
+   this.removeEvent.emit(id);
+   return false;
+ }
 
 }
