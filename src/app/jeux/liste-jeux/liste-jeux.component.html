@@ -1,6 +1,6 @@
 
   <div class="jeuxContainer">
-    <div>
+    <div class="jeux jeux{{inputJeux.id}}">
       <div class="nomImg">
         <img
           class="gamePicture"
@@ -9,7 +9,7 @@
         />
       </div>
       <div class="nomEditeur">
-        <div> <strong>Nom du jeu:</strong> {{inputJeux.nom}} </div>
+        <div class="nom"> <strong>Nom du jeu:</strong> {{inputJeux.nom}} </div>
         <div> <strong>Editeur:</strong> {{inputJeux.editeur}}</div>
       </div>
       <div class="operationContainer">
@@ -23,5 +23,5 @@
         <a mat-flat-button href="">Supprimer</a>
       </div>
       </div>
-    </div>
+      </div>
   </div>

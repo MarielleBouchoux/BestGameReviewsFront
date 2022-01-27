@@ -8,6 +8,17 @@
   align-items: center;
 }
 
+.jeux {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 2px solid black;
+  padding: 0.5em;
+  margin: 0.5em;
+  justify-content: space-between;
+  width: 55em;
+}
+
 strong {
   color:#80cbc4;
 }
@@ -34,5 +45,11 @@ strong {
 
 
 .mat-flat-button {
-  color: blue;
+  color: rgb(0, 183, 255);
+  border-radius: 15px;
+
+}
+
+.nom {
+  margin-bottom: 1em;
 }
