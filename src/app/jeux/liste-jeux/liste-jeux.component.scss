@@ -1,3 +1,55 @@
 .listeJeuxCard {
   min-height: 100vh;
 }
+
+.jeuxContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.jeux {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 2px solid black;
+  padding: 0.5em;
+  margin: 0.5em;
+  justify-content: space-between;
+  width: 55em;
+}
+
+strong {
+  color:#80cbc4;
+}
+
+.gamePicture {
+  width: 10rem;
+}
+
+.nomEditeur{
+  display: flex;
+  flex-direction: column;
+}
+
+
+.operationContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.operationLink {
+  display: flex;
+  flex-direction: row;
+}
+
+
+.mat-flat-button {
+  color: rgb(0, 183, 255);
+  border-radius: 15px;
+
+}
+
+.nom {
+  margin-bottom: 1em;
+}
