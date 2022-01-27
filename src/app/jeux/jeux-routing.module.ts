@@ -6,8 +6,8 @@ import { ListeJeuxComponent } from './liste-jeux/liste-jeux.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'/jeux', pathMatch:'full'},
-  {path:'jeux', component:JeuxComponent},
-  {path:'liste-jeux', component:ListeJeuxComponent},
+  {path:'liste-jeux', component:JeuxComponent},
+  {path:'detail', component:ListeJeuxComponent},
   {path:'ajouter-jeux', component:AjouterJeuxComponent },
 ];
 

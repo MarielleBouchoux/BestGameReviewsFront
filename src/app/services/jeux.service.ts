@@ -16,8 +16,8 @@ export class JeuxService {
 
   constructor(private client:HttpClient) {}
 
-  getJeux():Observable<Jeux[]>{
-    return this.client.get<Jeux[]>(AUTH_API + 'liste-jeux');
+  getJeux():Observable<Array<Jeux>>{
+    return this.client.get<Array<Jeux>>(AUTH_API + 'liste-jeux-dto');
   };
 
 
@@ -27,16 +27,18 @@ export class JeuxService {
     dateDeSortie : Date,
     description : string,
     genre : string,
+    image : string,
     classification : string,
     plateforme : string,
     modeleEconomique : string
     ):Observable<Jeux>{
-    return this.client.post<Jeux>(AUTH_API + 'ajouter-avis', {
+    return this.client.post<Jeux>(AUTH_API + 'ajouter-jeux-dto', {
       nom,
       editeur,
       dateDeSortie,
       description,
       genre,
+      image,
       classification,
       plateforme,
       modeleEconomique
@@ -44,7 +46,7 @@ export class JeuxService {
   }
 
   deleteAvis(id: number):Observable<Jeux>{
-    return this.client.delete<Jeux>(AUTH_API + `supprimer-jeux${id}`)
+    return this.client.delete<Jeux>(AUTH_API + `supprimer-jeux/${id}`)
   }
 
 }

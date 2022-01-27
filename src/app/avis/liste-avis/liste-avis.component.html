@@ -1,52 +1,14 @@
-
-<div class="{{ theme }}">
-  <mat-card class="{{ theme }} listAvisCard">
-    <h1>Liste des avis</h1>
-    <!-- TODO: la page n'est accessible qu'aux personnes connectées -->
-    <div class="enTete">
-      <div class="filtres">
-        <mat-card>
-          <h2>Filtrer par</h2>
-        </mat-card>
-        <!-- <mat-form-field appearance="fill">
-          <mat-label>Date d'envoi</mat-label>
-          <mat-select [formControl]="dates" multiple>
-            <mat-option *ngFor="let unAvis of desAvis" [value]="date">{{date}}</mat-option>
-          </mat-select>
-        </mat-form-field> -->
-        <!-- <mat-form-field appearance="fill">
-          <mat-label>Nom du jeu</mat-label>
-          <mat-select [formControl]="jeux" multiple>
-            <mat-option *ngFor="let jeu of listeJeux" [value]="jeu.nom">{{jeu.nom}}</mat-option>
-          </mat-select>
-        </mat-form-field> -->
-      </div>
-      <!-- TODO: seul les joueurs peuvent ajouter un avis -->
-      <button mat-raised-button color="primary" class="home-btn-item" routerLink="/avis/ajouter-avis"
-      aria-label="ajouter un avis"
-      matTooltip="ajouter un avis">
-      <a color="primary" class="home-btn-item-a" >Ajouter un avis</a>
-      </button>
-      <mat-paginator
-        [length]="5"
-        [pageSize]="5"
-        [pageSizeOptions]="[5]"
-        aria-label="Select page"
-      >
-      </mat-paginator>
-    </div>
-    <div class="avisContainer">
-
-
-      <div class="avis avis1">
-        <div class="nomImg">
-          <div class="line1 gameName"> <strong>Nom du jeu:</strong> {{inputAvis.nom}} </div>
-          <!-- <div>
-            <img
-              class="gamePicture"
-                src="{{inputAvis.image}}"
-                alt="image jeu 1"
-              />
+<div class="avisContainer">
+  <div class="avis avis{{inputAvis.id}}">
+    <div class="nomImg">
+      <div class="line1 gameName"> <strong>Nom du jeu:</strong> {{inputAvis.nom}} </div>
+      <!-- TODO : Implémenter une image du jeu avec la note -->
+        <!-- <div>
+           <img
+            class="gamePicture"
+              src="{{inputAvis.image}}"
+              alt="image jeu 1"
+            />
           </div>-->
         </div>
         <div class="joueurDateDesc">
@@ -70,5 +32,4 @@
       </div>
 
     </div>
-  </mat-card>
-</div>
+
