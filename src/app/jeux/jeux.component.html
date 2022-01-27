@@ -1,24 +1,30 @@
-<div class="{{ theme }}">
-  <mat-card class="{{ theme }} JeuxCard">
-    <div>
-      <div class="nomImg">
-        <div>
-          <img
-            class="gamePicture"
-              src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-              alt="image jeu 1"
-            />
-        </div>
+<div class="{{theme}}">
+  <mat-card class="{{theme}} listJeuxCard">
+    <h1>Liste des jeux</h1>
+    <div class="enTete">
+      <div class="filtres">
+        <mat-card>
+          <h2>Filtrer par</h2>
+        </mat-card>
       </div>
-      <div> <strong>Nom du jeu:</strong> name1 </div>
-      <div> <strong>Editeur:</strong> editor1</div>
-      <div class="operation">
-        <strong>Opérations:</strong>
-        <a mat-flat-button href="">Voir l'avis</a>
-        <a mat-flat-button href="">Modifier</a>
-        <a mat-flat-button href="">Téléverser l'image</a>
-        <a mat-flat-button href="">Supprimer</a>
-      </div>
+      <button mat-raised-button color="primary"  routerLink="/jeux/ajouter-jeux"
+        aria-label="ajouter un jeu"
+        matTooltip="ajouter un jeu">
+        <a color="primary">Ajouter un jeux</a>
+      </button>
+      <!-- TODO: seulement pour les modérateurs -->
     </div>
+
+    <app-liste-jeux *ngFor="let j of jeux" [inputJeux]="j"></app-liste-jeux>
+
+    <mat-paginator
+      #paginator
+      [length]="5"
+      [pageSize]="10"
+      [pageSizeOptions]="[5,10,15,20]"
+      aria-label="Select page"
+      showFirstLastButtons
+    >
+    </mat-paginator>
   </mat-card>
 </div>

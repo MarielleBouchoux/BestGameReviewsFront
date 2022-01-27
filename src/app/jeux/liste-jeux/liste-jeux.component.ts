@@ -16,9 +16,9 @@ export class ListeJeuxComponent implements OnInit {
   subscription = new Subscription;
 
   @Input()
-  inputJeux: Jeux = new Jeux("Minecraft", "Truc", new Date("2019-05-27"), "C'est un chouette jeu", "FPS", "https://material.angular.io/assets/img/examples/shiba2.jpg","PEGI 16", "PS5", "play to play");
+  inputJeux: Jeux = new Jeux(0,"Minecraft", "Truc", new Date("2019-05-27"), "C'est un chouette jeu", "FPS", "https://material.angular.io/assets/img/examples/shiba2.jpg","PEGI 16", "PS5", "play to play");
 
-  constructor(private data: DataService, private jeuxService : JeuxService) { }
+  constructor(private data: DataService, jeuxService : JeuxService) { }
   //constructor(){};
 
   ngOnInit(): void {
