@@ -1,56 +1,27 @@
-<div class={{theme}}>
-  <mat-card class="{{theme}} listeJeuxCard">
-    <h1>Liste des jeux</h1>
-  </mat-card>
-</div>
-  <button mat-raised-button color="primary"  routerLink="/jeux/ajouter-jeux"
-      aria-label="ajouter un jeu"
-      matTooltip="ajouter un jeu">
-      <a color="primary">Ajouter un jeux</a>
-  </button>
-  <!-- TODO: seulement pour les modérateurs -->
+
   <div class="jeuxContainer">
-
-    <!-- <div>
-      <div class="nomImg">
-        <div>
-          <img
-            class="gamePicture"
-              src="{{inputJeux.image}}"
-              alt="image jeu 1"
-            />
-        </div>
-      </div>
-      <div> <strong>Nom du jeu:</strong> {{inputJeux.nom}} </div>
-      <div> <strong>Editeur:</strong> {{inputJeux.editeur}}</div>
-      <div class="operation">
-        <strong>Opérations:</strong>
-        <a mat-flat-button href="">Voir l'avis</a>
-        <a mat-flat-button href="">Modifier</a>
-        <a mat-flat-button href="">Téléverser l'image</a>
-        <a mat-flat-button href="">Supprimer</a>
-      </div>
-    </div> -->
-
     <div>
       <div class="nomImg">
-        <div>
-          <img
-            class="gamePicture"
-              src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-              alt="image jeu 1"
-            />
-        </div>
+        <img
+          class="gamePicture"
+            src="{{inputJeux.image}}"
+            alt="image jeu{{inputJeux.id}}"
+        />
       </div>
-      <div> <strong>Nom du jeu:</strong> name1 </div>
-      <div> <strong>Editeur:</strong> editor1</div>
-      <div class="operation">
+      <div class="nomEditeur">
+        <div> <strong>Nom du jeu:</strong> {{inputJeux.nom}} </div>
+        <div> <strong>Editeur:</strong> {{inputJeux.editeur}}</div>
+      </div>
+      <div class="operationContainer">
+        <div class="operationTitle">
         <strong>Opérations:</strong>
+        </div>
+        <div class="operationLink">
         <a mat-flat-button href="">Voir l'avis</a>
         <a mat-flat-button href="">Modifier</a>
         <a mat-flat-button href="">Téléverser l'image</a>
         <a mat-flat-button href="">Supprimer</a>
       </div>
+      </div>
     </div>
-
   </div>
