@@ -28,7 +28,7 @@ export class AvisService {
     auteur : string,
     statut : string,
   ):Observable<Avis>{
-    return this.client.post<Avis>(AUTH_API + 'ajouter-avis', {
+    return this.client.post<Avis>(AUTH_API + 'ajouter-avis-dto', {
       nom,
       dateEnvoi,
       description,
@@ -39,7 +39,7 @@ export class AvisService {
   }
 
   deleteAvis(id: number):Observable<Avis>{
-    return this.client.delete<Avis>(AUTH_API + `supprimer-avis${id}`)
+    return this.client.delete<Avis>(AUTH_API + `supprimer-avis/${id}`)
   }
 
   validerAvis(idAvis: number, idUser : number):Observable<Avis>{

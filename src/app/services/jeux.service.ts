@@ -46,7 +46,7 @@ export class JeuxService {
   }
 
   deleteAvis(id: number):Observable<Jeux>{
-    return this.client.delete<Jeux>(AUTH_API + `supprimer-jeux${id}`)
+    return this.client.delete<Jeux>(AUTH_API + `supprimer-jeux/${id}`)
   }
 
 }
