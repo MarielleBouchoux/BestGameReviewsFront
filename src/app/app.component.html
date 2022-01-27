@@ -14,10 +14,18 @@
       <button mat-button (click)="changeTheme()" matTooltip="Thème visuel" aria-label="Changement de thème visuel">
         <span class="iconify" data-icon="mdi:theme-light-dark"></span>
       </button>
+      <div *ngIf="!isLoggedIn">
       <button mat-icon-button  routerLink="/home" matTooltip="Acceuil" aria-label="Lien vers l'acceuil">
-        <a routerLink="/home"></a>
+        <a  *ngIf="isLoggedIn" routerLink="/home"></a>
         <mat-icon>home</mat-icon>
       </button>
+      </div>
+      <div *ngIf="isLoggedIn">
+      <button mat-icon-button  routerLink="/avis/liste-avis" matTooltip="Acceuil" aria-label="Lien vers l'acceuil">
+        <a  *ngIf="isLoggedIn" routerLink="/avis/liste-avis"></a>
+        <mat-icon>home</mat-icon>
+      </button>
+      </div>
       <!-- TODO Ne faire apparaître le sous menu que si le user est connecté -->
       <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="menu" matTooltip="Menu">
         <mat-icon>more_vert</mat-icon>
