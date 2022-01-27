@@ -7,7 +7,7 @@ import { BehaviorSubject } from 'rxjs';
 export class DataService {
 
   /**
-   *
+   * Gérer la préférence du user pour le dark ou light mode
    */
   public _theme = new BehaviorSubject<string>("darkMode");
   currentTheme = this._theme.asObservable();

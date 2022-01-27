@@ -3,13 +3,15 @@
     <div class="nomImg">
       <div class="line1 gameName"> <strong>Nom du jeu:</strong> {{inputAvis.nom}} </div>
       <!-- TODO : Implémenter une image du jeu avec la note -->
-        <!-- <div>
+
+        <div *ngIf="inputAvis.image.includes('.jpg')">
            <img
+
             class="gamePicture"
-              src="{{inputAvis.image}}"
-              alt="image jeu 1"
+              src="./assets/img/jeuxvideos/{{inputAvis.image}}"
+              alt="image jeu{{inputAvis.id}}"
             />
-          </div>-->
+          </div>
         </div>
         <div class="joueurDateDesc">
           <div class="line1 column2"> <strong>Nom du joueur:</strong> {{inputAvis.auteur}}</div>
@@ -24,6 +26,8 @@
           <!-- TODO: supprimer et valider seulement pour les modérateurs -->
           <div class="operation">
             <strong>Opérations:</strong>
+          </div>
+          <div class="btn-operation">
             <a mat-flat-button href="">Supprimer</a>
             <a mat-flat-button href="">Valider</a>
             <a mat-flat-button href="">Voir l'avis</a>
